@@ -1,0 +1,11 @@
+name: rf_mcmc_paper
+dependencies:
+  - python=3.12
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - pandas
+  - properscoring
+  - pip
+  - pip:
+    - git+https://github.com/cnrrobertson/pymcmcstat
