@@ -1,0 +1,48 @@
+patch.linewidth: 0.5
+patch.facecolor: 348ABD  # blue
+# patch.edgecolor: EEEEEE
+patch.edgecolor: 000000
+patch.antialiased: True
+
+font.size: 10.0
+font.family: serif
+
+# axes.facecolor: E5E5E5
+# axes.edgecolor: white
+axes.linewidth: 1
+axes.grid: True
+axes.titlesize: x-large
+axes.labelsize: large
+axes.labelcolor: black
+axes.axisbelow: True       # grid/ticks are below elements (e.g., lines, text)
+
+# Ggplot
+# axes.prop_cycle: cycler('color', ['E24A33', '348ABD', '988ED5', '777777', 'FBC15E', '8EBA42', 'FFB5B8'])
+# Wong
+# axes.prop_cycle: cycler('color', ["3f90da", "ffa90e", "bd1f01", "94a4a2", "832db6", "a96b59", "e76300", "b9ac70", "717581", "92dadd"]
+# Ggplot colorblind
+# axes.prop_cycle: cycler('color', ["E69F00", "56B4E9", "009E73","999999", "F0E442", "0072B2", "D55E00", "CC79A7"])
+# RColorBrewer set1
+# axes.prop_cycle: cycler('color', ["E41A1C", "377EB8", "4DAF4A", "999999", "984EA3", "FF7F00", "FFFF33", "A65628", "F781BF"])
+# Seaborn colorblind
+axes.prop_cycle: "cycler('color', ['0173b2', 'de8f05', '029e73', 'd55e00', 'cc78bc', 'ca9161', 'fbafe4', '949494', 'ece133', '56b4e9'])"
+# axes.prop_cycle: "cycler('color', ['0173b2', 'de8f05', '029e73', 'd55e00', 'cc78bc', 'ca9161', 'fbafe4', '949494', 'ece133', '56b4e9']) + cycler('linestyle', ['solid', 'dashed', 'dotted', 'dashdot', (0,(1,10)), (5,(10,3)), (0,(5,1)), (0,(3,1,1,1)), (0,(3,5,1,5,1,5)), (0,(1,10))])"
+# Tableau colorblind
+# axes.prop_cycle: cycler('color', ['006BA4', 'FF800E', 'ABABAB', '595959', '5F9ED1', 'C85200', '898989', 'A2C8EC', 'FFBC79', 'CFCFCF']) + cycler('linestyle', ['-', '--', ':', '-.']) + cycler('marker', ['o', 's', '^', 'P', 'D'])
+
+xtick.color: black
+xtick.direction: out
+
+ytick.color: black
+ytick.direction: out
+
+grid.color: white
+grid.linestyle: -    # solid line
+
+figure.facecolor: white
+figure.edgecolor: 0.50
+figure.figsize: 4,2.5
+
+text.usetex: True
+
+legend.framealpha: 1
