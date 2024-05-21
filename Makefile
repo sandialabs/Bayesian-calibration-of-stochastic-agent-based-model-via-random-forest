@@ -35,9 +35,6 @@ help:
 	@echo --------------------------- Pushforward -----------------------------
 	@echo compare           - compare ABC and MCMC calibration pushforwards
 	@echo
-	@echo --------------------------- Documentation ---------------------------
-	@echo docs              - compare ABC and MCMC calibration pushforwards
-	@echo
 	@echo =====================================================================
 
 install_deps: install_python install_r
@@ -78,6 +75,4 @@ all_calibration: calibrate convergence score plot_calibration
 
 compare:
 	python scripts/compare_mcmc_abc.py
-
-docs:
 
