@@ -1,6 +1,6 @@
 # Bayesian calibration of stochastic agent based model via random forest
 
-This repository contains the code used for the paper "Bayesian calibration of stochastic agent based model via random forest surrogate modeling".
+This repository contains the code used for the paper "Bayesian calibration of stochastic agent based model via random forest".
 It contains hospitalization and death data produced by the CityCOVID agent based model.
 It also provides code to train a Random Forest surrogate model for CityCOVID hospitalizations and deaths, calculate a Bayesian estimate of parameters from CityCOVID using this surrogate, and then produce plots and data of this calibration.
 
