@@ -1,0 +1,7 @@
+"M" "N" "Total" "Nmin" "I" "R"
+"Probability.of.infection.from.exposure" 48 23880 23928 1537 15.6 NA
+"Time.of.initial.exposure" 45 21793 21838 1537 14.2 NA
+"Probability.of.self.isolation" 49 24142 24191 1537 15.7 NA
+"Probability.of.protective.behaviors" 48 25411 25459 1537 16.6 NA
+"sigma2_h" 6 4999 5005 1537 3.26 NA
+"sigma2_d" 9 5111 5120 1537 3.33 NA
