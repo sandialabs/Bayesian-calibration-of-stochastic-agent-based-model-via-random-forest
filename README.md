@@ -1,12 +1,17 @@
-# Bayesian calibration of stochastic agent based model via random forest
+# CityCOVID Calibration
 
-This repository contains the code used for the paper "Bayesian calibration of stochastic agent based model via random forest".
-It contains hospitalization and death data produced by the CityCOVID agent based model.
-It also provides code to train a Random Forest surrogate model for CityCOVID hospitalizations and deaths, calculate a Bayesian estimate of parameters from CityCOVID using this surrogate, and then produce plots and data of this calibration.
+This repository contains the code used for the papers:
+
+- [Bayesian calibration of stochastic agent based model via random forest]()
+- [Advancing calibration for stochastic agent-based models in epidemiology with stein variational inference and gaussian process surrogates]()
+
+It also contains hospitalization and death data produced by the [CityCOVID]() agent based model.
+As part of these papers, it provides code to train a Random Forest or Gaussian Process surrogate model for CityCOVID hospitalizations and deaths, calculate a Bayesian or Stein variational estimate of parameters from CityCOVID using the surrogate, and then produce plots and data of these estimates.
 
 ## Installation
-All dependencies can be installed by running `make install_deps`.
-Specifics can be found below.
+Package installation for this code is mostly easily accomplished using [pixi]().
+All dependencies can be installed by running `pixi install` in the repository root.
+However, specifics can be found below.
 
 ### Python
 The code in this repository makes use of the following `python` packages:
@@ -18,9 +23,6 @@ The code in this repository makes use of the following `python` packages:
 - `seaborn`
 - `scikit-learn`
 
-These can easily be installed by running `make install_python` if you have `conda` or `pip` already on your system.
-Alternatively, they can be installed with `pip` via `pip install -r requirements.txt` or with `conda/mamba` via `conda env create -f environment.yml`.
-
 ### R
 The code in this repository makes use of the following `R` packages:
 - `ggdist`
@@ -28,10 +30,6 @@ The code in this repository makes use of the following `R` packages:
 - `mcgibbsit`
 - `scoringutils`
 
-These can easily be installed by running `make install_r` as long as `R` is already installed on your system.
-
 ## Usage
-Reproduction of the results and plots can most easily be done by running `make all_surrogate` followed by `make all_calibration` and `make compare`.
-
-The above runs various scripts from `scripts/` which make use of some utility functions in `src/` and data from `data/` to output files into `results/` and plots into `plots/`.
-See `make help` or `make` for more information on individual scripts.
+Instructions to reproduce each paper can be found in the `papers/**/README.md` files.
+However, generally, the various scripts from `scripts/**` will be used to call utility functions in `src/` using data from `data/` and will output files into `results/**` and plots into `plots/**`.
