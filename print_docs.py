@@ -1,5 +1,5 @@
 from glob import glob
-from pypdf import PdfMerger
+from pypdf import PdfWriter
 import os
 import shutil
 import subprocess
@@ -8,7 +8,22 @@ convert_map = {
     ".py": "python",
     ".R": "r"
 }
-ignore_exts = [".csv", ".json", ".pkl", ".mplstyle", "", ".txt", ".yml", ".png"]
+ignore_exts = [
+    ".csv",
+    ".json",
+    ".pkl",
+    ".mplstyle",
+    "",
+    ".txt",
+    ".yml",
+    ".png",
+    ".toml",
+    ".log",
+    ".pyc",
+    ".lock",
+    ".npy",
+    ".mp4"
+]
 
 if os.path.isdir("docs"):
     shutil.rmtree("docs")
@@ -27,7 +42,7 @@ for path in glob("**", recursive=True):
                 # pdf_name = "docs/"+path.replace("/", "_").replace(ext, ".pdf")
                 # args = ["pandoc", "--pdf-engine=tectonic", path, "-o", pdf_name]
                 pdf_name = path.replace("/", "_").replace(ext, ".pdf")
-                args = ["quarto", "render", path, "--to", "pdf", "--output-dir", "docs/", "-o", pdf_name, "--quiet"]
+                args = ["quarto", "render", path, "--to", "pdf", "--output-dir", "docs/", "-o", pdf_name, "--pdf-engine", "typst", "--quiet"]
                 subprocess.check_call(args)
             else:
                 md_name = "docs/"+path.replace("/", "_").replace(ext, ".md")
@@ -40,7 +55,8 @@ for path in glob("**", recursive=True):
                         f1.writelines(lines)
                     f1.write("```")
                 # args = ["pandoc", "--pdf-engine=tectonic", md_name, "-o", pdf_name]
-                args = ["quarto", "render", md_name, "--to", "pdf", "--output-dir", "docs/", "-o", pdf_name, "--quiet"]
+                # args = ["quarto", "render", md_name, "--to", "pdf", "--output-dir", "docs/", "-o", pdf_name, "--quiet"]
+                args = ["quarto", "render", md_name, "--to", "pdf", "--output-dir", "docs/", "-o", pdf_name, "--pdf-engine", "typst", "--quiet"]
                 subprocess.check_call(args)
                 os.remove(md_name)
 
@@ -50,7 +66,7 @@ plot_pdfs = [p for p in pdfs if "docs/plots_" in p]
 non_plot_pdfs = [p for p in pdfs if "docs/plots_" not in p]
 all_pdfs = non_plot_pdfs + plot_pdfs
 
-merger = PdfMerger()
+merger = PdfWriter()
 
 for pdf in all_pdfs:
     merger.append(pdf)
@@ -61,4 +77,3 @@ merger.write("docs/docs.pdf")
 for pdf in all_pdfs:
     os.remove(pdf)
 # %%
-
