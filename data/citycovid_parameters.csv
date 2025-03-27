@@ -1,4 +1,4 @@
-instance,Number of initial infected,Probability of infection from exposure,Seasonality multiplier,Shielding by susceptible,Proportion of isolated in homes,Proportion of isolated in nursing homes,Time of initial exposure,Probability of self-isolation,Probability of protective behaviors
+instance,Number of initial infected,Rate of exposure to infected,Seasonality multiplier,Shielding by susceptible,Proportion of isolated in homes,Proportion of isolated in nursing homes,Time of initial seeding of infection,Probability of stay at home,Probability of protective behaviors
 1,443.6,0.0492857142857143,0.211,0.967,0.471,0.549,96.0,0.9474,0.435333333333333
 2,443.6,0.0525714285714286,0.211,0.967,0.471,0.549,77.5,0.9558,0.463666666666667
 3,443.6,0.0558571428571429,0.211,0.967,0.471,0.549,114.5,0.9642,0.416444444444444

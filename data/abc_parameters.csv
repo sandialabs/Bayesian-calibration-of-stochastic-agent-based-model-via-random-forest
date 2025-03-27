@@ -1,4 +1,4 @@
-instance,infected.count,susceptible.to.exposed.probability,seasonality.multiplier,shielding.scaling,isolate.infectivity.household,isolate.infectivity.nursinghome,initial.exposure.tick,stay.at.home.probability,stoe.behavioral.adjustment.probability
+instance,Number of initial infected,Rate of exposure to infected,Seasonality multiplier,Shielding by susceptible,Proportion of isolated in homes,Proportion of isolated in nursing homes,Time of initial seeding of infection,Probability of stay at home,Probability of protective behaviors
 1003,587.317287414342,0.0626536318279101,0.065523198733566,0.942715774411923,0.489887098533695,0.636014562804808,128.13491479091,0.969203733191575,0.443799576077499
 1017,586.578945153692,0.043928504149264,0.176849554812822,0.888692599151419,0.367976901199182,0.598226818279174,108.674330758133,0.922571639437357,0.395917703867889
 1044,522.017574296628,0.0488306397912137,0.0260871857484722,0.906825540942997,0.511631152180597,0.662014699545546,97.7339610458884,0.905160339156927,0.354392417911967
