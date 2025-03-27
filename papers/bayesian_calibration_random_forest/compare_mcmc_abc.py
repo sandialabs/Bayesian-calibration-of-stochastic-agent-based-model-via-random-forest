@@ -11,18 +11,6 @@ colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 from scipy.stats import gaussian_kde, entropy, wasserstein_distance, chisquare
 import pickle
 
-nice_param_map = {
-    'infected.count': "Number of initial infected",
-    'susceptible.to.exposed.probability': "Probability of infection from exposure",
-    'seasonality.multiplier': "Seasonality multiplier",
-    'shielding.scaling': "Shielding by susceptible",
-    'isolate.infectivity.household': "Proportion of isolated in homes",
-    'isolate.infectivity.nursinghome': "Proportion of isolated in nursing homes",
-    'initial.exposure.tick': "Time of initial exposure",
-    'stay.at.home.probability': "Probability of self-isolation",
-    'stoe.behavioral.adjustment.probability': "Probability of protective behaviors",
-}
-
 # ------------------------------------------------------------------------------
 # Load data
 # ------------------------------------------------------------------------------
@@ -42,7 +30,7 @@ def PCA_RF_surrogate(ps):
     result = transformer.inverse_transform(raw_result.reshape((1,-1))).flatten()
     return result
 
-data_real = pd.read_csv(env+"/data/observed_chicago.csv", index_col=0).dropna()
+data_real = get_real_data()
 
 # Average posterior predictive
 data_pred = pd.read_csv(env+"/data/bayesian_pushforward_results.csv", index_col=0, header=[0,1]).dropna()
@@ -51,7 +39,6 @@ data_time = pd.to_datetime(data_real.index)
 time_mask = np.array([True if (ft in data_time) else False for ft in full_time])
 data_pred = data_pred.loc[:,time_mask]
 params_pred = pd.read_csv(env+"/data/bayesian_pushforward_parameters.csv", index_col=None)
-params_pred = params_pred.rename(nice_param_map, axis=1)
 key_vars = params_pred.columns[params_pred.var() > 1e-10]
 
 hosp_pred = data_pred.loc[:,"hospitalizations"]
@@ -71,7 +58,6 @@ death_95 = death_pred.quantile(.95)
 # Load ABC data
 data_abc = pd.read_csv(env+"/data/abc_results.csv", index_col=0, header=[0,1]).dropna()
 params_abc = pd.read_csv(env+"/data/abc_parameters.csv", index_col=0)
-params_abc = params_abc.rename(nice_param_map, axis=1)
 data_abc = data_abc.loc[params_abc.index, time_mask]
 
 hosp_abc = data_abc.loc[:,"hospitalizations"]

@@ -14,7 +14,7 @@ colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
 import sys
 sys.path.append(env + "/src/utils")
-from load_data import get_data, get_params
+from load_data import get_data, get_params, get_real_data
 sys.path.append(env + "/src/calibration")
 from distance_correlation import distcorr
 
@@ -37,23 +37,11 @@ show_plots = True
 loaddir = env + "/results/bayesian_calibration_random_forest/calibration"
 plotdir = env + "/plots/bayesian_calibration_random_forest/calibration"
 
-nice_param_map = {
-    'infected.count': "Number of initial infected",
-    'susceptible.to.exposed.probability': "Probability of infection from exposure",
-    'seasonality.multiplier': "Seasonality multiplier",
-    'shielding.scaling': "Shielding by susceptible",
-    'isolate.infectivity.household': "Proportion of isolated in homes",
-    'isolate.infectivity.nursinghome': "Proportion of isolated in nursing homes",
-    'initial.exposure.tick': "Time of initial exposure",
-    'stay.at.home.probability': "Probability of self-isolation",
-    'stoe.behavioral.adjustment.probability': "Probability of protective behaviors",
-}
-
 # %%
 # ------------------------------------------------------------------------------
 # Load data
 # ------------------------------------------------------------------------------
-data_real = pd.read_csv(env+"/data/observed_chicago.csv", index_col=0).dropna()
+data_real = get_real_data()
 data_real = data_real.diff()
 hosp_len = data_real.shape[0]
 train_data = get_data(abc=False)
@@ -104,7 +92,6 @@ for k in results.keys():
     if isinstance(r, list):
         results[k] = np.array(r)
 
-# names = [nice_param_map[n] for n in results['names']]
 names = results['names']
 chain = np.array(results['chain'])
 s2chain = np.array(results['s2chain'])
@@ -240,7 +227,7 @@ else:
     plt.close()
 
 # %%
-temp_data_real = pd.read_csv(env+"/data/observed_chicago.csv", index_col=0).dropna()
+temp_data_real = get_real_data()
 d0,h0 = temp_data_real.iloc[0]
 
 temp_xplot = np.vstack((-1, xplot))
@@ -492,7 +479,6 @@ prior_df["Calibration"] = "DRAM Prior"
 
 # Load ABC results
 params_abc = get_params(abc=True)
-params_abc.columns = [nice_param_map[n] for n in params_abc.columns]
 params_abc = params_abc.filter(names)
 params_abc.reset_index(drop=True, inplace=True)
 params_abc["Calibration"] = "ABC"

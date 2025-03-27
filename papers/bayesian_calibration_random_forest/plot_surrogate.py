@@ -12,7 +12,7 @@ colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
 import sys
 sys.path.append(env + "/src/utils")
-from load_data import get_data, get_params
+from load_data import get_data, get_params, get_real_data
 sys.path.append(env + "/src/surrogate")
 import plots as prp
 import utils as pru

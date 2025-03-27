@@ -13,7 +13,7 @@ from pymcmcstat.propagation import observation_sample
 
 import sys
 sys.path.append(env+"/src/utils")
-from load_data import get_data, get_params
+from load_data import get_data, get_params, get_real_data
 
 smoothing = 7
 prediction_samples = 500
@@ -22,7 +22,7 @@ nsimu = 50000
 # ------------------------------------------------------------------------------
 # Load data
 # ------------------------------------------------------------------------------
-data_real = pd.read_csv(env+"/data/observed_chicago.csv", index_col=0).dropna()
+data_real = get_real_data()
 data_real = data_real.diff()
 train_data = get_data(abc=False)
 parameters = get_params(abc=False, drop_vars=True)

@@ -11,7 +11,7 @@ import sys
 sys.path.append(env + "/src/utils")
 sys.path.append(env + "/src/surrogate")
 import utils as pru
-from load_data import get_data, get_params
+from load_data import get_data, get_params, get_real_data
 
 # Load data
 data_raw = get_data(abc=False)
