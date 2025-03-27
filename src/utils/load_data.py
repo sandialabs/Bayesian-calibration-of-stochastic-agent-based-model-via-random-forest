@@ -22,3 +22,5 @@ def get_data(abc=False):
     data = pd.read_csv(data_loc, index_col=0, header=[0,1])
     return data
 
+def get_real_data():
+    return pd.read_csv(env+"/data/observed_chicago.csv", index_col=0).dropna()
